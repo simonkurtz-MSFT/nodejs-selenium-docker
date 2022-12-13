@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-selenium-docker",
+  "version": "1.0.0",
+  "description": "NodeJS with Selenium for browser-based testing in a Docker container",
+  "main": "index.js",
+  "scripts": {
+    "start": "cls && node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonkurtz-MSFT/nodejs-selenium-docker.git"
+  },
+  "author": "Simon Kurtz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simonkurtz-MSFT/nodejs-selenium-docker/issues"
+  },
+  "homepage": "https://github.com/simonkurtz-MSFT/nodejs-selenium-docker#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.7.0"
+  }
+}
