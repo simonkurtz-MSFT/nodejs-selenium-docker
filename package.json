@@ -4,7 +4,7 @@
   "description": "NodeJS with Selenium for browser-based testing in a Docker container",
   "main": "index.js",
   "scripts": {
-    "start": "cls && node ./index.js",
+    "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
