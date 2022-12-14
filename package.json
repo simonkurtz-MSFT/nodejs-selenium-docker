@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/simonkurtz-MSFT/nodejs-selenium-docker#readme",
   "dependencies": {
-    "selenium-webdriver": "^4.7.0"
+    "selenium-webdriver": "^4.7.1"
   }
 }
