@@ -1,7 +1,15 @@
 const { Builder } = require('selenium-webdriver');
 const { Options } = require('selenium-webdriver/chrome');
+const cron = require('node-cron');
 
-main();
+const RUN_ONCE = true;  // run once, if true, or continuously once every minute on the minute, if false
+
+if (RUN_ONCE) {
+    (async () => await main())();
+} else {
+    console.log('Waiting for cron schedule to begin.\n');
+    cron.schedule('*/1 * * * *', async () => await main());
+}
 
 async function main() {
     let driver;
