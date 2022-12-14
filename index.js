@@ -1,6 +1,6 @@
-const { Builder } = require('selenium-webdriver');
-const { Options } = require('selenium-webdriver/chrome');
-const cron = require('node-cron');
+import { Builder } from "selenium-webdriver";
+import { Options } from "selenium-webdriver/chrome.js";
+import * as cron from "node-cron";
 
 const RUN_ONCE = true;  // run once, if true, or continuously once every minute on the minute, if false
 

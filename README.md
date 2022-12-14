@@ -11,7 +11,7 @@ This simple project illustrates how NodeJS and Selenium can be used for website 
 
 ### One-time or Continuous Execution
 
-The `RUN_ONCE` constant at the top of `index.js` can be set to execute the code once and subsequently terminate the container or keep executing on a cron schedule, thereby keeping the container alive. 
+The `RUN_ONCE` constant at the top of `index.js` can be set to execute the code once and subsequently terminate the container or keep executing on a cron schedule, thereby keeping the container alive.
 
 ## Selenium
 

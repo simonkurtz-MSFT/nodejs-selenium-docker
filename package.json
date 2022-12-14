@@ -17,6 +17,7 @@
     "url": "https://github.com/simonkurtz-MSFT/nodejs-selenium-docker/issues"
   },
   "homepage": "https://github.com/simonkurtz-MSFT/nodejs-selenium-docker#readme",
+  "type": "module",
   "dependencies": {
     "node-cron": "^3.0.2",
     "selenium-webdriver": "^4.7.1"
