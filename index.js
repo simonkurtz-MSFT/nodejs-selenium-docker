@@ -29,13 +29,13 @@ async function setupBrowser() {
     try {
         let options = new Options()
             .excludeSwitches(['enable-logging'])    // disable 'DevTools listening on...'
-            .headless()                             // run headless Chrome as we do not need to see the browser execute visually
             .addArguments([
                 // no-sandbox is not an advised flag due to security but eliminates "DevToolsActivePort file doesn't exist" error
                 'no-sandbox',
                 // Docker containers run with 64 MB of dev/shm by default, which may cause Chrome failures.
                 // Disabling dev/shm uses tmp, which solves the problem but consumes memory steadily until it stabilizes near memory capacity
-                'disable-dev-shm-usage'
+                'disable-dev-shm-usage',
+                '-headless'                         // run headless Chrome as we do not need to see the browser execute visually
             ]);
 
         return await new Builder().forBrowser('chrome').setChromeOptions(options).build();
