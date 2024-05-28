@@ -1,5 +1,5 @@
 # 1) Use alpine-based NodeJS base image. We lock to specific version rather than `latest` to ensure stability.
-FROM node:19.7.0
+FROM node:22.2.0
 
 # 2) Install latest stable Chrome
 # https://gerg.dev/2021/06/making-chromedriver-and-chrome-versions-match-in-a-docker-image/
