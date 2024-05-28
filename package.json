@@ -19,7 +19,7 @@
   "homepage": "https://github.com/simonkurtz-MSFT/nodejs-selenium-docker#readme",
   "type": "module",
   "dependencies": {
-    "node-cron": "^3.0.2",
-    "selenium-webdriver": "^4.8.1"
+    "node-cron": "^3.0.3",
+    "selenium-webdriver": "^4.21.0"
   }
 }
