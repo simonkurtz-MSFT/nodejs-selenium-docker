@@ -1,6 +1,6 @@
-import { Builder } from "selenium-webdriver";
-import { Options } from "selenium-webdriver/chrome.js";
-import * as cron from "node-cron";
+const { Builder } = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const cron = require('node-cron');
 
 const RUN_ONCE = true;  // run once, if true, or continuously once every minute on the minute, if false
 
@@ -19,26 +19,24 @@ async function main() {
         await driver.get('https://github.com');
         const title = await driver.getTitle();
         console.log(title);
-    }
-    finally {
+    } finally {
         await endBrowser(driver);
     }
 }
 
 async function setupBrowser() {
     try {
-        let options = new Options()
-            .excludeSwitches(['enable-logging'])    // disable 'DevTools listening on...'
-            .addArguments([
-                // no-sandbox is not an advised flag due to security but eliminates "DevToolsActivePort file doesn't exist" error
-                'no-sandbox',
-                // Docker containers run with 64 MB of dev/shm by default, which may cause Chrome failures.
-                // Disabling dev/shm uses tmp, which solves the problem but consumes memory steadily until it stabilizes near memory capacity
-                'disable-dev-shm-usage',
-                '-headless'                         // run headless Chrome as we do not need to see the browser execute visually
-            ]);
-
-        return await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+        console.log('\nInitiating login...')
+        let options = new chrome.Options();
+        options.addArguments('--headless'); // Add headless mode
+        options.addArguments('--disable-gpu'); // Disable GPU
+        options.addArguments('--no-sandbox'); // Sandbox
+        options.addArguments('--disable-dev-shm-usage'); // Dev shm usage
+        let driver = await new Builder()
+        .forBrowser('chrome')
+        .setChromeOptions(options) // Set the options
+        .build();
+        return driver
     } catch (e) {
         console.error(e);
     }
@@ -60,7 +58,7 @@ async function endBrowser(driver) {
             }
 
             driver = null;
-            console.log('\nEnded browser and disposed of driver.')
+            console.log('\nEnded browser and disposed of driver.');
         }
     } catch (e) {
         console.error(e);
